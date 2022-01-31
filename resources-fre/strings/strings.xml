@@ -1,0 +1,24 @@
+<strings>
+    <string id="AppName">Air Quality Index</string>
+
+    <string id="ApiKey">API Key from aqicn.org. Click on (i) to get API Key from http://aqicn.org</string>
+    <string id="UseGPS">Use GPS. If checked, then built-in GPS will be used, otherwise the city below will be used</string>
+    <string id="StationId">Id de la station (eg @8129)</string>
+
+    <string id="UndefinedTitle">Indéfini</string>
+    <string id="GoodTitle">Bon</string> <!-- 0-50 -->
+    <string id="ModerateTitle">Modéré</string> <!-- 51-100 -->
+    <string id="UnhealthyForSensitiveTitle">Mauvais\npour les groupes sensibles</string> <!-- 101-150 -->
+    <string id="UnhealthyTitle">Mauvais</string> <!-- 151-200 -->
+    <string id="VeryUnhealthyTitle">Très\nMauvais</string> <!-- 201-300 -->
+    <string id="HazardousTitle">Dangereux</string> <!-- 300+ -->
+
+    <string             id="UndefinedText">Undefined Air quality</string>
+    <string                  id="GoodText">La qualité de l'air est jugée\nsatisfaisante, et la pollution\nde l'air pose peu ou \npas de risque.</string>
+    <string              id="ModerateText">La qualité de l'air est acceptable.\nCependant, pour certains polluants,\nil peut y avoir un risque sur la santé pour \nun très petit nombre de personnes inhabituellement sensibles\n à la pollution atmosphérique.</string>
+    <string id="UnhealthyForSensitiveText">Members of sensitive\ngroups may experience\nhealth effects. The general\npublic is not likely to be\naffected</string>
+    <string             id="UnhealthyText">Tout le monde peut commencer \nà ressentir des effets sur la santé;\n les membres des groupes sensibles \npeuvent ressentir des effets de santé\n plus graves.</string>
+    <string         id="VeryUnhealthyText">Health warnings of\nemergency conditions.\nThe entire population is\nmore likely to be affected</string>
+    <string             id="HazardousText">Alerte de santé: tout le monde\npeut ressentir des effets de \nsanté plus graves.</string>
+
+</strings>
