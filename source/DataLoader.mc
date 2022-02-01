@@ -89,7 +89,24 @@ class DataLoader {
         // Sys.println("prepare to register geo position event");
         status = WaitingGeoData;
 
-        Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onGeoPositionResponse));
+        /* last known position */
+        var positionInfo = Position.getInfo();
+        var myLocation = positionInfo.position.toDegrees();
+        latitude = myLocation[0];
+        longitude = myLocation[1];
+    	System.println(latitude + "," +longitude  );
+
+    	System.println("GPS pos acc : "+positionInfo.accuracy);
+        
+        if (positionInfo.accuracy == Position.QUALITY_NOT_AVAILABLE) {
+        	System.println("no position : "+positionInfo.accuracy);
+            latitude = 50.4747;
+            longitude = 3.061;
+            Position.enableLocationEvents(Position.LOCATION_ONE_SHOT, method(:onGeoPositionResponse));
+        }  else {
+            requestHttpDataByPosition(latitude, longitude);
+        }      
+
         Ui.requestUpdate();
     }
 
@@ -147,6 +164,10 @@ class DataLoader {
             var aqi   = data["data"]["aqi"];
             var pm25  = data["data"]["iaqi"]["pm25"] != null ? data["data"]["iaqi"]["pm25"]["v"] : "-";
             var pm10  = data["data"]["iaqi"]["pm10"] != null ? data["data"]["iaqi"]["pm10"]["v"] : "-";
+            var no2   = data["data"]["iaqi"]["no2"]["v"];
+            var so2   = data["data"]["iaqi"]["so2"]["v"];
+            var pressure = data["data"]["iaqi"]["p"]["v"];
+            System.println("p: " +  pressure + " pm10:" + pm10 + " pm25 : "+ pm25);
 
             aqi = correctAqi(aqi, pm25, pm10);
             self.data = new OkData(normalize(city), aqi, pm25, pm10, decideLevel(aqi));
