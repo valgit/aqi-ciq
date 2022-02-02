@@ -92,8 +92,8 @@ class DataLoader {
         /* last known position */
         var positionInfo = Position.getInfo();
         var myLocation = positionInfo.position.toDegrees();
-        latitude = myLocation[0];
-        longitude = myLocation[1];
+        var latitude = myLocation[0];
+        var longitude = myLocation[1];
     	System.println(latitude + "," +longitude  );
 
     	System.println("GPS pos acc : "+positionInfo.accuracy);
@@ -167,7 +167,10 @@ class DataLoader {
             var no2   = data["data"]["iaqi"]["no2"]["v"];
             var so2   = data["data"]["iaqi"]["so2"]["v"];
             var pressure = data["data"]["iaqi"]["p"]["v"];
+            //TODO: wind ?
+            // hygro
             System.println("p: " +  pressure + " pm10:" + pm10 + " pm25 : "+ pm25);
+            System.println("no2: " +  no2 + " so2:" + so2 );
 
             aqi = correctAqi(aqi, pm25, pm10);
             self.data = new OkData(normalize(city), aqi, pm25, pm10, decideLevel(aqi));
