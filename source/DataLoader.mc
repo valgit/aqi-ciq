@@ -25,6 +25,11 @@ class OkData {
     var aqi;
     var pm25;
     var pm10;
+    var no2;
+    var so2;
+    var pressure;
+    var wind;
+    var humidity;
     var level;
 
     function initialize(city, aqi, pm25, pm10, level) {
