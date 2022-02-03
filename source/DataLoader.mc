@@ -28,6 +28,7 @@ class OkData {
     var no2;
     var so2;
     var pressure;
+    var temperature;
     var wind;
     var humidity;
     var level;
@@ -171,10 +172,15 @@ class DataLoader {
             var pm10  = data["data"]["iaqi"]["pm10"] != null ? data["data"]["iaqi"]["pm10"]["v"] : "-";
             var no2   = data["data"]["iaqi"]["no2"]["v"];
             var so2   = data["data"]["iaqi"]["so2"]["v"];
+            
             var pressure = data["data"]["iaqi"]["p"]["v"];
-            //TODO: wind ?
+            var wind = data["data"]["iaqi"]["w"]["v"];
+            var temperature =data["data"]["iaqi"]["t"]["v"];
+            var humidity = data["data"]["iaqi"]["h"]["v"];
+
             // hygro
-            System.println("p: " +  pressure + " pm10:" + pm10 + " pm25 : "+ pm25);
+            System.println("p: " +  pressure  + " hum :" + temperature + " wind : " + wind + " hum : " + humidity);
+            System.println("pm10 :" + pm10 + " pm25 : "+ pm25);
             System.println("no2: " +  no2 + " so2:" + so2 );
 
             aqi = correctAqi(aqi, pm25, pm10);
