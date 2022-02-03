@@ -32,6 +32,7 @@ class OkData {
     var wind;
     var humidity;
     var level;
+    var dominentpol;
 
     function initialize(city, aqi, pm25, pm10, level) {
         self.city  = city;
@@ -172,6 +173,7 @@ class DataLoader {
             var pm10  = data["data"]["iaqi"]["pm10"] != null ? data["data"]["iaqi"]["pm10"]["v"] : "-";
             var no2   = data["data"]["iaqi"]["no2"]["v"];
             var so2   = data["data"]["iaqi"]["so2"]["v"];
+            var dominentpol = data["data"]["dominentpol"];
             
             var pressure = data["data"]["iaqi"]["p"]["v"];
             var wind = data["data"]["iaqi"]["w"]["v"];
@@ -180,7 +182,7 @@ class DataLoader {
 
             // hygro
             System.println("p: " +  pressure  + " hum :" + temperature + " wind : " + wind + " hum : " + humidity);
-            System.println("pm10 :" + pm10 + " pm25 : "+ pm25);
+            System.println("dominent: " + dominentpol + " pm10 :" + pm10 + " pm25 : "+ pm25);
             System.println("no2: " +  no2 + " so2:" + so2 );
 
             aqi = correctAqi(aqi, pm25, pm10);
